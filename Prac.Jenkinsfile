@@ -8,6 +8,16 @@ pipeline {
             	}
             }
        	} 
+        stage ('compiling Source File'){
+            steps{
+                bat 'cd "Clone Source Code" && javac hello.java
+            }
+        }
+        stage ('Run Source File'){
+            steps{
+                bat 'cd "Clone Source Code" && java A
+            }
+        }
 
     }
 }       
