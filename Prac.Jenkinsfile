@@ -10,12 +10,13 @@ pipeline {
        	} 
         stage ('compiling Source File'){
             steps{
-                bat 'cd "Clone Source Code" && javac hello.java'
+                bat 'cd "Clone Source Code" && javac hello.java && set a=text && echo %a%'
+
             }
         }
         stage ('Run Source File'){
             steps{
-                bat 'cd "Clone Source Code" && java A'
+                bat 'cd "Clone Source Code" && java A && echo %a%'
             }
         }
 
