@@ -10,13 +10,18 @@ pipeline {
        	} 
         stage ('compiling Source File'){
             steps{
-                bat 'cd "Clone Source Code" && javac hello.java && set a=text && echo %a%'
+                bat 'cd "Clone Source Code" && javac hello.java '
 
             }
         }
         stage ('Run Source File'){
             steps{
-                bat 'cd "Clone Source Code" && java A && echo %a%'
+                bat 'cd "Clone Source Code" && java A '
+            }
+        }
+         stage ('Error'){
+            steps{
+                error("TestCase Failed")
             }
         }
 
