@@ -28,10 +28,11 @@ pipeline {
         }
          stage ('Error'){
             steps{
+                bat '''
                 IF EXIST TestCaseFailed.txt (
                      error("TestCase Failed")
                  )
-                
+                '''
             }
         }
 
