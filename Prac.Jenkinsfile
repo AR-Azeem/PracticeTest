@@ -23,10 +23,18 @@ pipeline {
         }
         stage ('Run Source File'){
             steps{
-                bat 'cd "Clone Source Code" && java A '
+                bat 'cd "Clone_Source_Code" && java A '
             }
         }
-        
+         stage ('Error'){
+            steps{
+                bat '''
+                IF EXIST TestCaseFailed.txt (
+                     error("TestCase Failed")
+                 )
+                '''
+            }
+        }
 
     }
 }       
