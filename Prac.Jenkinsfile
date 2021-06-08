@@ -29,6 +29,7 @@ pipeline {
          stage ('Error'){
             steps{
                 bat '''
+                cd Clone_Source_Code
                 IF EXIST TestCaseFailed.txt (
                      error("TestCase Failed")
                  )
