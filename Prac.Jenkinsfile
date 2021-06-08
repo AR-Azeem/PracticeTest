@@ -10,7 +10,14 @@ pipeline {
        	} 
         stage ('compiling Source File'){
             steps{
-                bat 'cd "Clone Source Code" && javac hello.java '
+                bat """
+                 cd 'Clone Source Code'
+                 IF EXIST TestCaseFailed.txt (
+                     del /f TestCaseFailed.txt
+                 )
+                 javac hello.java 
+
+                 """
 
             }
         }
@@ -21,7 +28,10 @@ pipeline {
         }
          stage ('Error'){
             steps{
-                error("TestCase Failed")
+                IF EXIST TestCaseFailed.txt (
+                     error("TestCase Failed")
+                 )
+                
             }
         }
 
