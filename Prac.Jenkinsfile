@@ -11,11 +11,11 @@ pipeline {
         stage ('compiling Source File'){
             steps{
                 bat """
-                 cd 'Clone Source Code'
-                 IF EXIST TestCaseFailed.txt (
-                     del /f TestCaseFailed.txt
-                 )
-                 javac hello.java 
+                    cd 'Clone Source Code'
+                    IF EXIST TestCaseFailed.txt (
+                        del /f TestCaseFailed.txt
+                    )
+                    javac hello.java 
 
                  """
 
