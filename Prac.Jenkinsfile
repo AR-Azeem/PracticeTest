@@ -28,12 +28,19 @@ pipeline {
         }
          stage ('Error'){
             steps{
-                bat '''
+               def script = '''
+                set st=False 
                 cd Clone_Source_Code
                 IF EXIST TestCaseFailed.txt (
-                     error("TestCase Failed")
+                     set st=True
                  )
                 '''
+                def status = bat(script: script, returnStdout: true)
+                echo "$status"
+                if($status){
+                    error("failes")
+                    echo "good job...."
+                }
             }
         }
 
