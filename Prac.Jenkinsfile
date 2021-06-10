@@ -36,8 +36,8 @@ pipeline {
        	       
        	       if(folderStatus)
        	       {
-       	                error("failes")
-                        echo "good job...."
+                
+                echo "good job...."
        	      
        	       }
                     
