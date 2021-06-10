@@ -36,7 +36,7 @@ pipeline {
 
                 echo folderStatus
        	       
-       	       if(folderStatus == True)
+       	       if(folderStatus == "True")
        	       {
                 
                 echo "good job...."
