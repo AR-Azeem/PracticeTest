@@ -38,8 +38,12 @@ pipeline {
        	       {
                 
                 echo "good job...."
+                error("failed in TestCases")
        	      
        	       }
+            else{
+                echo "No error"
+            }
                     
             }
         }
