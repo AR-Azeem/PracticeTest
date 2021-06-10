@@ -34,16 +34,16 @@ pipeline {
                 def folderStatus = powershell(returnStdout:  true, script: "cd  Clone_Source_Code ; Test-Path -path TestCaseFailed12.txt")
          	    echo "${folderStatus}"
        	       
-       	       if(${folderStatus})
+       	       if(folderStatus)
        	       {
                 
                 echo "good job...."
                 error("failed in TestCases")
        	      
        	       }
-            else{
+                else{
                 echo "No error"
-            }
+                }
                     
             }
         }
