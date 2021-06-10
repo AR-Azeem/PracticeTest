@@ -31,15 +31,12 @@ pipeline {
                script{ 
                     
 
-                def folderStatus = powershell(returnStdout:  true, script: "cd  Clone_Source_Code ; Test-Path -path TestCaseFailed1223.txt")
+                def folderStatus = powershell(returnStdout:  true, script: "cd  Clone_Source_Code ; Test-Path -path TestCaseFailed.txt")
          	    echo "${folderStatus}"
 
                 echo folderStatus
        	       
-       	       
-                    
-            }
-            if(folderStatus)
+       	       if(folderStatus=="True")
        	       {
                 
                 echo "good job...."
@@ -49,6 +46,8 @@ pipeline {
                 else{
                 echo "No error"
                 }
+                    
+            }
         }
 
     }
