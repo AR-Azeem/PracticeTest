@@ -36,7 +36,10 @@ pipeline {
 
                 echo folderStatus
        	       
-       	       if(folderStatus)
+       	       
+                    
+            }
+            if(folderStatus)
        	       {
                 
                 echo "good job...."
@@ -46,8 +49,6 @@ pipeline {
                 else{
                 echo "No error"
                 }
-                    
-            }
         }
 
     }
