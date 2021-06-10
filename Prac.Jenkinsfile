@@ -29,25 +29,21 @@ pipeline {
          stage ('Error'){
             steps{
                script{ 
-                    def script = '''
-                    set st=False 
-                    cd Clone_Source_Code
-                    IF EXIST TestCaseFailed.txt (
-                        set st=True
-                    )
-                    echo %st%
-                    '''
-                    def status = bat(script: script, returnStdout: true)
-                    echo "${status}"
-                    echo "Hello world"
                     
-                    if(status){
-                        error("failes")
+
+                def folderStatus = powershell(returnStdout:  true, script: "cd  Clone_Source_Code ; Test-Path -path TestCaseFailed.txt")
+         	    echo "${folderStatus}"
+       	       
+       	       if(folderStatus)
+       	       {
+       	                error("failes")
                         echo "good job...."
-                    }
-                 }
+       	      
+       	       }
+                    
             }
         }
 
     }
 }       
+}
