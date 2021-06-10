@@ -38,7 +38,7 @@ pipeline {
                     echo %st%
                     '''
                     def status = bat(script: script, returnStdout: true)
-                    echo status
+                    echo "${status}"
                     if(status){
                         error("failes")
                         echo "good job...."
